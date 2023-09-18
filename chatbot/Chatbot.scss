@@ -1,0 +1,271 @@
+//
+// Chatterbot color styles:
+//
+
+// set colors
+// TODO switch to vars for colors
+
+.chatbot-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 440px;
+  height: 580px;
+  border: 2px solid black;
+  border-radius: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 51;
+  background-color: #fff;
+  box-shadow: 0 0 15px #000;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  transform: translateX(550px);
+  //display: none;
+  opacity: 0;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+}
+
+.chatbot-popup.active {
+  transform: translateX(0); /* Slide in to the viewport */
+}
+.chatbot-popup.closed {
+  transform: translateX(550px);
+  //transform: translateX(100%);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.3s; // Adjust duration as neede
+}
+.chatbot-popup.open {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s, transform 0.3s; // Adjust duration as needed
+}
+
+
+.avatar-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 5px;
+  background-color: rgba(43, 181, 181, 0.615); /* Teal background for the avatar */
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  flex: 0 0 30px;
+  border: 1px solid black;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color:teal;
+  color: #fff;
+  overflow: hidden;
+  //border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid black;
+}
+
+.chatbot-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.message-history {
+  flex: 1;
+  max-height: 470px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f3f3f3;
+  background-color: #ff8c00; /* Orange background for bot messages */
+  color:black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  @media (max-width: 500px) {
+    max-height: 100%;
+  }
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 1.1rem;
+  z-index: 53;
+  //clear: both;
+}
+
+.message-row {
+  display: flex; /* Create a flex container */
+  //align-items: flex-start; /* Align items to the top */
+  flex-direction: row;
+  align-items: flex-end;
+  //justify-content: space-between;
+  //border: 1px solid
+  
+}
+.row-Bot {
+  // align-items: flex-start;
+}
+.row-User {
+  justify-content: flex-end;
+}
+
+.User {
+  background-color: #a6e7de;
+  text-align: right;
+  border: 2px solid #000000;
+  border-radius: 20px 20px 0px 20px;
+  margin-top: 10px;
+  margin-right: 4px;
+  //align-items: flex-end;
+  //float:right;
+  //clear: both;
+}
+
+.Bot {
+  background-color: #f9c186;
+  text-align: left;
+  border: 2px solid #000000;
+  border-radius: 20px 20px 20px 0px;
+  margin-top: 10px;
+  //align-items: flex-start;
+  //float: left;
+  //clear: both;
+}
+
+.user-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 0px;
+  border-top: 2px solid black;
+  background-color: #dc9b78;
+  //border-top: 2px black;
+}
+
+input {
+  flex: 1;
+  padding: 5px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+input:focus { 
+  outline: none !important;
+  border-color: teal;
+  box-shadow: 0 0 10px teal;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #ff8c00; /* Orange button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border: 1px solid black;
+}
+.user-input button:hover {
+  background-color: #e66e00; /* Darker shade on hover */
+}
+.user-input .sendicon:hover {
+  fill: white;
+}
+
+.quickReplies {
+  background-color: teal;
+  margin: 2px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.quickReplies:hover {
+  color:black;
+}
+
+.chatsoc {
+  color: black;
+  z-index: 11;
+}
+
+.popoutIcon {
+  white-space:nowrap;
+  display: inline-block;
+  position: relative;
+  top: -5px;
+}
+.keyword-link {
+  text-decoration: underline;
+  //border: 1px solid red;
+  // border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 52;
+  white-space:nowrap;
+}
+.keyword-link::before {
+    background-image: linear-gradient(
+    -100deg,
+    rgba(72, 144, 216, 0.21),
+    rgba(100, 154, 208, 0.615) 95%,
+    rgba(255, 224, 0, 0.1)
+    );
+      // background-size: 200% 100%;
+  // background-position: 100% 0;
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 75%;
+    left: -4px;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0px 0px 29px 0px;
+    transform: rotate(-3deg);
+}
+
+.sendicon {
+  fill: rgb(69, 69, 69);
+}
+
+
+// TODO - regular links should get above 'marker effect'
